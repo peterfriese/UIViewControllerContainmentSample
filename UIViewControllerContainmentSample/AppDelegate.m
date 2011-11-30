@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
+#import "SampleViewController.h"
 
 @implementation AppDelegate
 
@@ -15,7 +17,27 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     // Override point for customization after application launch.
+    
+    MainViewController *mainViewController = [[MainViewController alloc] init];
+    [self.window setRootViewController:mainViewController];
+    
+    SampleViewController *leftViewController = [[SampleViewController alloc] init];
+    leftViewController.color = [UIColor blueColor];
+    leftViewController.secondaryColor = [UIColor lightGrayColor];
+    mainViewController.leftController = leftViewController;
+    
+    SampleViewController *topRightViewController = [[SampleViewController alloc] init];
+    topRightViewController.color = [UIColor redColor];
+    topRightViewController.secondaryColor = [UIColor grayColor];
+    mainViewController.topRightController = topRightViewController;
+    
+    SampleViewController *bottomRightViewController = [[SampleViewController alloc] init];
+    bottomRightViewController.color = [UIColor greenColor];
+    bottomRightViewController.secondaryColor = [UIColor blackColor];
+    mainViewController.bottomRightController = bottomRightViewController;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
