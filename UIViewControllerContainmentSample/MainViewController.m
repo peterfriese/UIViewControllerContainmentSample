@@ -48,6 +48,11 @@
 - (void)setLeftController:(SampleViewController *)leftController
 {
     _leftController = leftController;
+    
+    // handle view controller hierarchy
+    [self addChildViewController:_leftController];
+    [_leftController didMoveToParentViewController:self];
+    
     if ([self isViewLoaded]) {
         [self updateLeftView];
     }
@@ -62,6 +67,11 @@
 - (void)setTopRightController:(SampleViewController *)topRightController
 {
     _topRightController = topRightController;
+    
+    // handle view controller hierarchy
+    [self addChildViewController:_topRightController];
+    [topRightController didMoveToParentViewController:self];
+    
     if([self isViewLoaded]) {
         [self updateTopRightView];
     }
@@ -76,6 +86,11 @@
 - (void)setBottomRightController:(SampleViewController *)bottomRightController
 {
     _bottomRightController = bottomRightController;
+    
+    // handle view controller hierarchy
+    [self addChildViewController:_bottomRightController];
+    [_bottomRightController didMoveToParentViewController:self];
+    
     if ([self isViewLoaded]) {
         [self updateTopRightView];
     }
