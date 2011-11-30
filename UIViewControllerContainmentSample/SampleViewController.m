@@ -96,7 +96,9 @@
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     NSLog(@"SampleViewController willRotateToInterfaceOrientation");
-    [self layoutForOrientation:toInterfaceOrientation];
+    [UIView animateWithDuration:duration animations:^{
+        [self layoutForOrientation:toInterfaceOrientation];
+    }];
 }
 
 @end
